@@ -359,4 +359,4 @@ test_that("Custom Pig Latin Transformation", {
 })
 ```
 
-    ## Test passed 🥇
+    ## Test passed 🥳
