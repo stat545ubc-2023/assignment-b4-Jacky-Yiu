@@ -16,7 +16,7 @@ This repository is for STAT 545B assignment B4.
 
 ### *Requisites*
 
-The code uses the following libraries. Please ensure you installed them by running
+The code uses the following libraries. 
 
 1.  datateachr
 2.  janeaustenr
