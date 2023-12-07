@@ -97,13 +97,13 @@ sensesensibility_tibble
     ## 10 "CHAPTER 1"            
     ## # ℹ 12,614 more rows
 
-It seem like every row contain sentence instead of inidvidual words, To
-convert the sentence into individual words and ignore all punctuation
+It seem like every row contain sentences instead of individual words, To
+convert the sentences into individual words and ignore all punctuation
 and white space, I will use the function `unnest_tokens` from the
 `tidytext` package.
 
-It also make all word lower case so it does discriminate uppercase and
-lower case words.
+It also make all word lower case so the analysis does not discriminate
+uppercase and lower case words.
 
 ``` r
 sensesensibility_words <- tidytext::unnest_tokens(sensesensibility_tibble, word, txt)
@@ -142,7 +142,7 @@ head(sensesensibility_no_stopwords)
     ## 6 chapter
 
 Next, I will find out the Top 20 words using the following code, than
-use `str_to_title` from the `stringr` package to capitalize wach word to
+use `str_to_title` from the `stringr` package to capitalize each word to
 make it more pretty
 
 ``` r
@@ -182,7 +182,7 @@ sensesensibility_no_stopwords_top_words
     ## 19 Brandon      119
     ## 20 Dear         118
 
-Finally, using GGplot, histogram, we can visualize the data.
+Finally, by using GGplot, we can visualize the data with a histogram.
 
 ``` r
 ggplot(sensesensibility_no_stopwords_top_words, aes(x = reorder(word, n), y = n, fill = n)) +
@@ -200,15 +200,15 @@ ggplot(sensesensibility_no_stopwords_top_words, aes(x = reorder(word, n), y = n,
 
 I define my customized Pig Latin function with the following rules:
 
-1.  If the word begins with a vowel and end with vowel, append”oodle” to
-    every vowel.
+1.  If the word begins with a vowel and end with vowel, append “oodle”
+    to every vowel.
 
-2.  If the word begins with a vowel and end with consonant,
-    append”oodle” to every vowel , and add “acky” to the end. .
+2.  If the word begins with a vowel and end with consonant, append
+    “oodle” to every vowel , and add “acky” to the end. .
 
 3.  If the word begins with a consonant, move the first consonant to the
-    end and the last letter to the beginning, append”oodle” to every
-    vowel and add “-acky” to the end.
+    end and the last letter to the beginning, append “oodle” to every
+    vowel and add “acky” to the end.
 
 ``` r
 #' Custom Pig Latin Transformation
@@ -335,7 +335,7 @@ test_that("Custom Pig Latin Transformation", {
   non_single_word <- "Hello world"
   expect_error(customPigLatin(non_single_word), "Input must be a single word.")
   
-  # Test with a number instead of charater
+  # Test with a number instead of character
   non_character <- 5486546
   expect_error(customPigLatin(non_character), "Input must be a character string.")
   
